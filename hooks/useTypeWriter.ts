@@ -1,47 +1,5 @@
 import { useEffect, useState } from "react";
 
-// var TxtType = function(el, toRotate, period) {
-//   this.toRotate = toRotate;
-//   this.el = el;
-//   this.loopNum = 0;
-//   this.period = parseInt(period, 10) || 2000;
-//   this.txt = '';
-//   this.tick();
-//   this.isDeleting = false;
-// };
-
-// TxtType.prototype.tick = function() {
-//   var i = this.loopNum % this.toRotate.length;
-//   var fullTxt = this.toRotate[i];
-
-//   // add or remove text
-//   if (this.isDeleting) {
-//     this.txt = fullTxt.substring(0, this.txt.length - 1);
-//   } else {
-//     this.txt = fullTxt.substring(0, this.txt.length + 1);
-//   }
-
-//   this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-
-//   var that = this;
-//   var delta = 200 - Math.random() * 100;
-
-//   if (this.isDeleting) { delta /= 2; }
-
-//   if (!this.isDeleting && this.txt === fullTxt) {
-//   delta = this.period;
-//   this.isDeleting = true;
-//   } else if (this.isDeleting && this.txt === '') {
-//   this.isDeleting = false;
-//   this.loopNum++;
-//   delta = 500;
-//   }
-
-//   setTimeout(function() {
-//   that.tick();
-//   }, delta);
-// };
-
 interface Sentence {
   text: string
   period: number
@@ -57,25 +15,33 @@ const getTypingDelay = (isDeleting: boolean): number => {
   return isDeleting ? delay / 2 : delay;
 }
 
-const getNextTextToType = (currentText: string, isDeleting: boolean, sentence: Sentence): string => {
+/**
+ * Gets the next letter for the typewriter.
+ */
+const getNextTextToType = (currentText: string, sentence: Sentence, isDeleting: boolean): string => {
   const { text } = sentence;
   return isDeleting
     ? text.substring(0, currentText.length - 1)
     : text.substring(0, currentText.length + 1);;
 }
 
+/**
+ * Mimcs typing by incrementally getting larger (or smaller) parts of a sentence. When a sentence is completed,
+ * it automatically starts deleting (after the given transition delay has passed).
+ * @param sentences Sentences for the typewriter to type infinitely
+ */
 export default function useTypeWriter(sentences: Sentence[]) {
   const [sentenceIndex, setSentenceIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
 
   const initialSentence = sentences[sentenceIndex];
   const [sentence, setSentence] = useState<Sentence>(initialSentence);
   
   useEffect(() => {
-    const sentence = sentences[sentenceIndex];
-    setSentence(sentence);
+    const { text = '', period = 2000 } = sentences[sentenceIndex];
+    setSentence({ text, period });
   }, [sentenceIndex])
 
+  const [isDeleting, setIsDeleting] = useState(false);
   const [typeWriterDelay, setTypeWriterDelay] = useState(getTypingDelay(isDeleting));
   const [typeWriterText, setTypeWriterText] = useState('');
 
@@ -101,7 +67,7 @@ export default function useTypeWriter(sentences: Sentence[]) {
         setTypeWriterDelay(getTypingDelay(isDeleting));
       }
 
-      setTypeWriterText(getNextTextToType(typeWriterText, isDeleting, sentence));
+      setTypeWriterText(getNextTextToType(typeWriterText, sentence, isDeleting));
 
     }, typeWriterDelay);
 
