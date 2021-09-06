@@ -1,9 +1,9 @@
-$color-primary: #3B5A58;  
-$color-secondary: #DECD97;
-$color-accent: #DCB13C;
+@use './constants/constants.scss' as constants;
 
+// Helpful while developing, to use in inspector.
+// Investigate if it's possible to ignore for production?
 :root {
-  --color-primary: #{$color-primary};
-  --color-secondary: #{$color-secondary};
-  --color-accent: #{$color-accent};
+  --color-primary: #{constants.$color-primary};
+  --color-secondary: #{constants.$color-secondary};
+  --color-accent: #{constants.$color-accent};
 }
