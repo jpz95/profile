@@ -1,4 +1,6 @@
-import useTypeWriter from 'hooks/useTypeWriter.ts'
+import useTypeWriter from 'hooks/useTypeWriter.ts';
+
+import styles from './Home.module.scss';
 
 export default function Home() {
   const sentences = [
@@ -8,7 +10,7 @@ export default function Home() {
   const text = useTypeWriter(sentences);
   return (
     <div>
-      <h2>{text}</h2>
+        <h2 className={styles.typeWriter}>{text}</h2>
       {/* <Link href="/about" as={process.env.BACKEND_URL + '/about'}>
         <a>About</a>
       </Link> */}

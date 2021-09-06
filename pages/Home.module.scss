@@ -1,0 +1,12 @@
+.typeWriter {
+  color: constants.$color-secondary;
+}
+
+.typeWriter:after {
+  content: '';
+  position: absolute;
+  width: 0.625rem;
+  height: 1.5rem;
+  margin-left: 0.25rem;
+  background-color: constants.$color-accent;
+}
