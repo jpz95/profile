@@ -2,8 +2,8 @@ import useTypeWriter from 'hooks/useTypeWriter.ts'
 
 export default function Home() {
   const sentences = [
-    { text: 'Hello there!', period: 1500 }, // set to good morning/afternoon/evening
-    { text: `I'm J.P., a detail-oriented frontend engineer`, period: 2500 },
+    { text: 'Hello there!', transitionDelay: 1500 }, // set to good morning/afternoon/evening
+    { text: `I'm J.P., a detail-oriented frontend engineer`, transitionDelay: 2500 },
   ];
   const text = useTypeWriter(sentences);
   return (

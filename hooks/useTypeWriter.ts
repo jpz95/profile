@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 interface Sentence {
   text: string
-  period: number
+  transitionDelay: number
 }
 
 /**
@@ -37,8 +37,8 @@ export default function useTypeWriter(sentences: Sentence[]) {
   const [sentence, setSentence] = useState<Sentence>(initialSentence);
   
   useEffect(() => {
-    const { text = '', period = 2000 } = sentences[sentenceIndex];
-    setSentence({ text, period });
+    const { text = '', transitionDelay = 2000 } = sentences[sentenceIndex];
+    setSentence({ text, transitionDelay });
   }, [sentenceIndex])
 
   const [isDeleting, setIsDeleting] = useState(false);
@@ -52,7 +52,7 @@ export default function useTypeWriter(sentences: Sentence[]) {
 
       if (isSentencedFullyTyped) {
         // The delay before the text starts deleting itself
-        setTypeWriterDelay(sentence.period);
+        setTypeWriterDelay(sentence.transitionDelay);
         setIsDeleting(true);
 
       } else if (isSentencedFullyDeleted) {
