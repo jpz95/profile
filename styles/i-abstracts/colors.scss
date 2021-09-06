@@ -1,0 +1,9 @@
+$color-primary: #3B5A58;  
+$color-secondary: #DECD97;
+$color-accent: #DCB13C;
+
+:root {
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-accent: #{$color-accent};
+}
