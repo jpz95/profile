@@ -1,0 +1,9 @@
+@use './constants/constants.scss' as constants;
+
+// Helpful while developing, to use in inspector.
+// Investigate if it's possible to ignore for production?
+:root {
+  --color-primary: #{constants.$color-primary};
+  --color-secondary: #{constants.$color-secondary};
+  --color-accent: #{constants.$color-accent};
+}

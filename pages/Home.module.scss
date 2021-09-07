@@ -1,0 +1,50 @@
+.home {
+  display: flex;
+  place-content: center;
+  padding: 2rem;
+}
+
+.window {
+  display: flex;
+  height: calc(100% - 5rem);
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-width: 2rem 1.875rem 4rem 1.875rem;
+  border-style: solid;
+  border-color: #b7b7b7;
+  border-radius: 24px;
+}
+
+.console {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  background-color: constants.$color-primary;
+}
+
+.typeWriter {
+  margin: 0;
+  color: constants.$color-secondary;
+}
+
+.textCursor {
+  margin-left: 0.25rem;
+  border-left: 0.375rem solid;
+  border-right: 0.375rem solid;
+  border-color: constants.$color-accent;
+  border-radius: 2px;
+  animation: blink step-end infinite 1.125s;
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: constants.$color-accent;
+  }
+}
