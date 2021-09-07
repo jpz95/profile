@@ -8,6 +8,9 @@ export default function Home() {
     { text: `I'm J.P., and I'm fluent in code c:`, transitionDelay: 2000 },
   ];
   const text = useTypeWriter(sentences);
+
+  // core tenants
+  // reusability/performance/usability
   return (
     <div className={styles.home}>
       <div className={styles.window}>
