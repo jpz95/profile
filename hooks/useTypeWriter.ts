@@ -11,7 +11,7 @@ interface Sentence {
  * We add a little randomness to be more realistic.
  */
 const getTypingDelay = (isDeleting: boolean): number => {
-  const delay = 200 - Math.random() * 100;
+  const delay = 185 - Math.random() * 75;
   return isDeleting ? delay / 2 : delay;
 }
 
