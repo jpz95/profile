@@ -3,7 +3,38 @@
 // Helpful while developing, to use in inspector.
 // Investigate if it's possible to ignore for production?
 :root {
-  --color-primary: #{constants.$color-primary};
+  color-scheme: light;
+
+  --color-primary: #{constants.$color-primary-light};
+  --color-primary-text-1: #{constants.$color-primary-light-text-1};
+  --color-primary-text-2: #{constants.$color-primary-light-text-2};
+
+  --color-primary-surface-1: #{constants.$color-primary-light-surface-1};
+  --color-primary-surface-2: #{constants.$color-primary-light-surface-2};
+  --color-primary-surface-3: #{constants.$color-primary-light-surface-3};
+  --color-primary-surface-4: #{constants.$color-primary-light-surface-4};
+
+  --color-primary-surface-shadow: #{constants.$color-primary-light-surface-shadow};
+  --color-primary-shadow-strength: #{constants.$color-primary-light-shadow-strength};
+
   --color-secondary: #{constants.$color-secondary};
   --color-accent: #{constants.$color-accent};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --color-primary: #{constants.$color-primary-dark};
+    --color-primary-text-1: #{constants.$color-primary-dark-text-1};
+    --color-primary-text-2: #{constants.$color-primary-dark-text-2};
+
+    --color-primary-surface-1: #{constants.$color-primary-dark-surface-1};
+    --color-primary-surface-2: #{constants.$color-primary-dark-surface-2};
+    --color-primary-surface-3: #{constants.$color-primary-dark-surface-3};
+    --color-primary-surface-4: #{constants.$color-primary-dark-surface-4};
+
+    --color-primary-surface-shadow: #{constants.$color-primary-dark-surface-shadow};
+    --color-primary-shadow-strength: #{constants.$color-primary-dark-shadow-strength};
+  }
 }

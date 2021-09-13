@@ -1,3 +1,33 @@
-$primary: #2493A2;
+// $primary: #2493A2;
+// $primary-hsl: hsl(187deg 64% 39%);
+$_primary-hue: 200;
+$_primary-saturation: 100%;
+$_primary-lightness: 50%;
+$primary-light: hsl($_primary-hue, $_primary-saturation, $_primary-lightness);
+
+$primary-light-text-1: hsl($_primary-hue, $_primary-saturation, 10%);
+$primary-light-text-2: hsl($_primary-hue, 30%, 30%);
+
+$primary-light-surface-1: hsl($_primary-hue 25% 90%);
+$primary-light-surface-2: hsl($_primary-hue 20% 99%);
+$primary-light-surface-3: hsl($_primary-hue 20% 92%);
+$primary-light-surface-4: hsl($_primary-hue 20% 85%);
+
+$primary-light-surface-shadow: $_primary-hue 10% 20%;
+$primary-light-shadow-strength: .02;
+
+$primary-dark: hsl($_primary-hue, calc($_primary-saturation / 2), calc($_primary-lightness / 1.5));
+
+$primary-dark-text-1: hsl($_primary-hue 15% 85%);
+$primary-dark-text-2: hsl($_primary-hue 5% 65%);
+
+$primary-dark-surface-1: hsl($_primary-hue 10% 10%);
+$primary-dark-surface-2: hsl($_primary-hue 10% 15%);
+$primary-dark-surface-3: hsl($_primary-hue 5%  20%);
+$primary-dark-surface-4: hsl($_primary-hue 5% 25%);
+
+$primary-dark-surface-shadow: $_primary-hue 50% 3%;
+$primary-dark-shadow-strength: .8;
+
 $secondary: #DECD97;
 $accent: #DCB13C;
