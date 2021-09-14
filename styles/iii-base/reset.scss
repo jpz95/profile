@@ -1,17 +1,10 @@
 html {
   height: 100%;
   background-color: var(--color-primary-surface-4);
-  color: #ddd;
+  color: var(--color-primary-text-1);
   font-family: sans-serif;
   box-sizing: border-box;
 }
-
-
-// @media (prefers-color-scheme: dark) {
-//   html {
-//     background-color: var(--color-primary-surface-4);
-//   }
-// }
 
 *, *:after, *::before {
   box-sizing: inherit;
