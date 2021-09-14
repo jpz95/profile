@@ -1,21 +1,26 @@
+@use 'sass:map';
 @use './constants/constants.scss' as constants;
 
-// Helpful while developing, to use in inspector.
-// Investigate if it's possible to ignore for production?
+@mixin color-variables($color-type, $theme) {
+  $color-scheme: map.get(constants.$color-scheme, $color-type, $theme);
+
+  --color-#{$color-type}: #{map.get($color-scheme, 'main')};
+  --color-#{$color-type}-text-1: #{map.get($color-scheme, 'text-1')};
+  --color-#{$color-type}-text-2: #{map.get($color-scheme, 'text-2')};
+
+  --color-#{$color-type}-surface-1: #{map.get($color-scheme, 'surface-1')};
+  --color-#{$color-type}-surface-2: #{map.get($color-scheme, 'surface-2')};
+  --color-#{$color-type}-surface-3: #{map.get($color-scheme, 'surface-3')};
+  --color-#{$color-type}-surface-4: #{map.get($color-scheme, 'surface-4')};
+
+  --color-#{$color-type}-surface-shadow: #{map.get($color-scheme, 'surface-shadow')};
+  --color-#{$color-type}-shadow-strength: #{map.get($color-scheme, 'shadow-strength')};
+}
+
 :root {
   color-scheme: light;
 
-  --color-primary: #{constants.$color-primary-light};
-  --color-primary-text-1: #{constants.$color-primary-light-text-1};
-  --color-primary-text-2: #{constants.$color-primary-light-text-2};
-
-  --color-primary-surface-1: #{constants.$color-primary-light-surface-1};
-  --color-primary-surface-2: #{constants.$color-primary-light-surface-2};
-  --color-primary-surface-3: #{constants.$color-primary-light-surface-3};
-  --color-primary-surface-4: #{constants.$color-primary-light-surface-4};
-
-  --color-primary-surface-shadow: #{constants.$color-primary-light-surface-shadow};
-  --color-primary-shadow-strength: #{constants.$color-primary-light-shadow-strength};
+  @include color-variables('primary', 'light');
 
   --color-secondary: #{constants.$color-secondary};
   --color-accent: #{constants.$color-accent};
@@ -25,16 +30,6 @@
   :root {
     color-scheme: dark;
 
-    --color-primary: #{constants.$color-primary-dark};
-    --color-primary-text-1: #{constants.$color-primary-dark-text-1};
-    --color-primary-text-2: #{constants.$color-primary-dark-text-2};
-
-    --color-primary-surface-1: #{constants.$color-primary-dark-surface-1};
-    --color-primary-surface-2: #{constants.$color-primary-dark-surface-2};
-    --color-primary-surface-3: #{constants.$color-primary-dark-surface-3};
-    --color-primary-surface-4: #{constants.$color-primary-dark-surface-4};
-
-    --color-primary-surface-shadow: #{constants.$color-primary-dark-surface-shadow};
-    --color-primary-shadow-strength: #{constants.$color-primary-dark-shadow-strength};
+    @include color-variables('primary', 'dark');
   }
 }

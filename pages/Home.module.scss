@@ -12,9 +12,15 @@
   justify-content: center;
   border-width: 2rem 1.875rem 4rem 1.875rem;
   border-style: solid;
-  border-color: #b7b7b7;
+  border-color: var(--color-primary-surface-2);
   border-radius: 24px;
 }
+
+// @media (prefers-color-scheme: dark) {
+//   .window {
+//     border-color: var(--color-primary-surface-4);
+//   }
+// }
 
 .console {
   display: flex;
