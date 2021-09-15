@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import useTypeWriter from 'hooks/useTypeWriter.ts';
 
-import styles from './Index.module.scss';
+import styles from './Intro.module.scss';
 
 export default function Intro() {
   const sentences = [
