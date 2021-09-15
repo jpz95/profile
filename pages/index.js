@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import useTypeWriter from 'hooks/useTypeWriter.ts';
 
 import styles from './Home.module.scss';
@@ -19,6 +21,9 @@ export default function Home() {
             {text}
             <span className={styles.textCursor} />
           </h2>
+          <Link href="/about" as={process.env.BACKEND_URL + '/about'}>
+            <button className={styles.button}>Come learn more!</button>
+          </Link>
         </div>
       </div>
       {/* <Link href="/about" as={process.env.BACKEND_URL + '/about'}>
