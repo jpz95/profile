@@ -14,7 +14,7 @@ export default function Intro() {
   // core tenants
   // reusability/performance/usability
   return (
-    <div className={styles.home}>
+    <div className={styles.intro}>
       <div className={styles.window}>
         <div className={styles.console}>
           <h2 className={styles.typeWriter}>
