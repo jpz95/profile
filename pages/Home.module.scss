@@ -10,10 +10,11 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  background-color: var(--color-primary-surface-1);
   border-width: 2rem 1.875rem 4rem 1.875rem;
   border-style: solid;
   border-color: var(--color-primary-surface-1);
-  border-radius: 24px;
+  border-radius: 1rem;
 }
 
 .console {
@@ -24,6 +25,8 @@
   width: 100%;
   padding: 1rem;
   background-color: var(--color-primary);
+  border: 1px solid var(--color-primary-surface-2);
+  border-radius: 0.5rem;
 }
 
 .typeWriter {
