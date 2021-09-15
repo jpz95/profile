@@ -46,7 +46,7 @@ export default function useTypeWriter(sentences: Sentence[]) {
   const [typeWriterText, setTypeWriterText] = useState('');
 
   useEffect(() => {
-    setTimeout(() => {
+    const newHandler = setTimeout(() => {
       const isSentencedFullyTyped = !isDeleting && sentence.text === typeWriterText;
       const isSentencedFullyDeleted = isDeleting && typeWriterText === '';
 
@@ -71,6 +71,9 @@ export default function useTypeWriter(sentences: Sentence[]) {
 
     }, typeWriterDelay);
 
+    return function cleanUp() {
+      clearTimeout(newHandler);
+    }
   }, [typeWriterText, isDeleting]);
 
   return typeWriterText;
