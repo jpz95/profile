@@ -21,11 +21,11 @@ export default function Intro() {
             {text}
             <span className={styles.textCursor} />
           </h2>
-          <Link href="/about" as={process.env.BACKEND_URL + '/about'}>
+          <Link href="/home" as={process.env.BACKEND_URL + '/home'}>
             <button className={styles.button}>Come learn more!</button>
           </Link>
         </div>
       </div>
     </div>
-  )
+  );
 }
