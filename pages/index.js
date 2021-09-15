@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 import useTypeWriter from 'hooks/useTypeWriter.ts';
 
-import styles from './Home.module.scss';
+import styles from './Index.module.scss';
 
-export default function Home() {
+export default function Intro() {
   const sentences = [
     { text: 'Hello there!', transitionDelay: 1500 }, // set to good morning/afternoon/evening
     { text: `I'm J.P., and I'm fluent in code c:`, transitionDelay: 2000 },
