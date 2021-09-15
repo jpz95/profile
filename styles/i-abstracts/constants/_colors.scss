@@ -1,9 +1,6 @@
 @use 'sass:map';
 @use 'sass:math';
 
-// $primary: #2493A2;
-// $primary-hsl: hsl(187deg 64% 39%);
-
 @function get-hsl-color-scheme($prefix, $hue, $saturation, $lightness) {
   $light-scheme-map: (
     main: hsl($hue, $saturation, $lightness),
@@ -35,14 +32,27 @@
   );
 }
 
+// light = #00aaff = blue jeans
+// dark = #2b6380 = blue sapphire
 $_primary-hue: 200;
 $_primary-saturation: 100%;
 $_primary-lightness: 50%;
 
-// Get colors by using map.get($scheme, 'primary', 'light')
-$scheme: (
-  primary: get-hsl-color-scheme('primary', $_primary-hue, $_primary-saturation, $_primary-lightness)
-);
+// light = #ffd500 = cyber yellow
+// dark = #b69d1e = lemon curry
+$_secondary-hue: 50;
+$_secondary-saturation: 100%;
+$_secondary-lightness: 50%;
 
-$secondary: #DECD97;
-$accent: #DCB13C;
+// Get colors by using `map.get($scheme, 'primary', 'light')`
+$scheme: (
+  primary: get-hsl-color-scheme('primary', $_primary-hue, $_primary-saturation, $_primary-lightness),
+  secondary: (
+    light: (
+      main: hsl($_secondary-hue, $_secondary-saturation, $_secondary-lightness)
+    ),
+    dark: (
+      main: hsl($_secondary-hue, math.div($_secondary-saturation, 1.4), math.div($_secondary-lightness, 1.2))
+    )
+  )
+);

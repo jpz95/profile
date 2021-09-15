@@ -21,9 +21,7 @@
   color-scheme: light;
 
   @include color-variables('primary', 'light');
-
-  --color-secondary: #{constants.$color-secondary};
-  --color-accent: #{constants.$color-accent};
+  --color-secondary: #{map.get(constants.$color-scheme, 'secondary', 'light', 'main')};
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,5 +29,6 @@
     color-scheme: dark;
 
     @include color-variables('primary', 'dark');
+    --color-secondary: #{map.get(constants.$color-scheme, 'secondary', 'dark', 'main')};
   }
 }
