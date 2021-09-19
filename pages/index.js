@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import useTypeWriter from 'hooks/useTypeWriter.ts';
+import useHref from 'hooks/useHref.ts';
 
 import styles from './Intro.module.scss';
 
@@ -10,6 +11,8 @@ export default function Intro() {
     { text: `I'm J.P., and I'm fluent in code c:`, transitionDelay: 2000 },
   ];
   const text = useTypeWriter(sentences);
+
+  const homeHref = useHref('/home');
 
   // core tenants
   // reusability/performance/usability
@@ -21,7 +24,7 @@ export default function Intro() {
             {text}
             <span className={styles.textCursor} />
           </h2>
-          <Link href="/home" as={process.env.BACKEND_URL + '/home'}>
+          <Link href={homeHref.href} as={homeHref.hrefOnHost}>
             <button className={styles.button}>Come learn more!</button>
           </Link>
         </div>
