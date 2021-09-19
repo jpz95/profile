@@ -32,7 +32,27 @@
 }
 
 .desktop {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  height: 4rem;;
+  margin-bottom: 1.5rem;
+}
+
+.bannerImg {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-secondary);
+  border-radius: 1rem;
+}
+
+.desktopAppContainer {
   --desktop-app-dimensions: 6rem;
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--desktop-app-dimensions));
   grid-auto-rows: calc(var(--desktop-app-dimensions) + 1.5rem);
